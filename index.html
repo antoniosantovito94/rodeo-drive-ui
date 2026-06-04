@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rodeo Drive di Vito Attimonelli</title>
+    <meta
+      name="description"
+      content="Rodeo Drive di Vito Attimonelli: abbigliamento donna e uomo nei mercati in Puglia, ora anche online."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@600,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Navigazione principale">
+        <button
+          class="mobile-menu"
+          type="button"
+          aria-label="Apri menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links nav-left">
+          <a href="#donna">Donna</a>
+          <a href="#uomo">Uomo</a>
+          <a href="#nuovi-arrivi" aria-current="page">Nuovi arrivi</a>
+          <a href="#sale">Sale</a>
+        </div>
+
+        <a class="brand-mark nav-brand" href="#" aria-label="Rodeo Drive home">
+          <img src="assets/rodeo-drive-logo.svg" alt="Rodeo Drive" />
+        </a>
+
+        <div class="nav-actions" aria-label="Azioni">
+          <a class="nav-icon-link" href="#wishlist" aria-label="Wishlist">
+            <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+          </a>
+          <a class="nav-icon-link" href="#cart" aria-label="Carrello">
+            <span class="material-symbols-outlined" aria-hidden="true">shopping_bag</span>
+          </a>
+          <a class="desktop-only" href="#account" aria-label="Account">Me</a>
+        </div>
+      </nav>
+
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <a href="#donna">Donna</a>
+        <a href="#uomo">Uomo</a>
+        <a href="#nuovi-arrivi">Nuovi arrivi</a>
+        <a href="#sale">Sale</a>
+        <a href="#mercati">Dove siamo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shape shape-red" aria-hidden="true"></div>
+        <div class="shape shape-green" aria-hidden="true"></div>
+
+        <div class="hero-card">
+          <div class="hero-logo">
+            <img src="assets/rodeo-drive-official.jpg" alt="Rodeo Drive di Vito Attimonelli" />
+          </div>
+          <p class="eyebrow">Nuova collezione - Estate 2026</p>
+          <h1>Stile senza <span>compromessi</span></h1>
+          <p class="hero-copy">Abbigliamento donna &amp; uomo</p>
+          <a class="button button-dark" href="#nuovi-arrivi">Scopri la collezione</a>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Servizi">
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon" aria-hidden="true">local_shipping</span>
+          <span>Spedizione Rapida</span>
+        </div>
+        
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon" aria-hidden="true">lock</span>
+          <span>Pagamento sicuro</span>
+        </div>
+        <div class="trust-item">
+          <span class="material-symbols-outlined trust-icon" aria-hidden="true">currency_exchange</span>
+          <span>Reso semplice</span>
+        </div>
+      </section>
+
+      <section class="story-intro" aria-labelledby="story-intro-title">
+        <div class="story-intro-card">
+          <h2 id="story-intro-title">6 mercati, una passione, ora anche online.</h2>
+          <p>
+            Da Andria a San Giovanni Rotondo, ogni settimana portiamo moda e
+            qualit&agrave; in tutta la provincia. Ora puoi avere i nostri capi
+            direttamente a casa tua, ovunque tu sia.
+          </p>
+        </div>
+      </section>
+
+      <section class="markets section-shell" id="mercati">
+        <div class="section-heading">
+          <h2>Dove ci trovi ogni settimana</h2>
+        </div>
+        <div class="market-grid">
+          <article class="market-card">
+            <span>Luned&igrave;</span>
+            <h3>Andria</h3>
+          </article>
+          <article class="market-card">
+            <span>Marted&igrave;</span>
+            <h3>Bitonto</h3>
+          </article>
+          <article class="market-card">
+            <span>Mercoled&igrave;</span>
+            <h3>Cerignola</h3>
+          </article>
+          <article class="market-card">
+            <span>Gioved&igrave;</span>
+            <h3>Canosa</h3>
+          </article>
+          <article class="market-card">
+            <span>Venerd&igrave;</span>
+            <h3>S. G. Rotondo</h3>
+          </article>
+          <article class="market-card">
+            <span>Sabato</span>
+            <h3>Corato</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="products section-shell" id="nuovi-arrivi">
+        <div class="section-heading heading-row">
+          <h2>Nuovi arrivi</h2>
+          <a href="#catalogo">Vedi tutti &rarr;</a>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <a class="product-media" href="#vestito_lungo">
+              <img src="assets/vestito_lungo.png" alt="Vestito lungo" />
+            
+              <span class="badge badge-blue">Nuovo</span>
+            </a>
+            <div class="product-info">
+              <h3>Vestito cotone rosso</h3>
+              <p class="price">&euro; 29,90</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-media" href="#vestito_fiore">
+              <img src="assets/vestito_fiore.png" alt="Vestito Fiore Paris" />
+            </a>
+            <div class="product-info">
+              <h3>Vestito Fiore Paris</h3>
+              <p class="price">
+                &euro; 29,90 <span>&euro; 39,90</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <a class="product-media" href="#corpetto">
+              <img src="assets/corpetto.png" alt="corpetto" />
+              <span class="badge badge-red">Sale</span>
+            </a>
+            <div class="product-info">
+              <h3>Corpetto Linea Paris</h3>
+              <p class="price">
+                &euro; 19,90 <span>&euro; 9,90</span>
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <button class="button button-outline mobile-load" type="button">
+          Carica altri
+        </button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <a class="brand-mark footer-brand" href="#" aria-label="Rodeo Drive home">
+          <span>Rodeo Drive</span>
+        </a>
+        <p>&copy; 2026 Rodeo Drive. Tutti i diritti riservati.</p>
+        <nav aria-label="Link footer">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#termini">Termini e Condizioni</a>
+          <a href="#spedizioni">Spedizioni</a>
+          <a href="#resi">Resi</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const mobileMenuButton = document.querySelector(".mobile-menu");
+      const mobileNav = document.querySelector("#mobile-nav");
+      const loadMoreButton = document.querySelector(".mobile-load");
+      const productGrid = document.querySelector(".product-grid");
+
+      mobileMenuButton?.addEventListener("click", () => {
+        const isOpen = mobileNav?.classList.contains("is-open");
+
+        if (isOpen) {
+          mobileNav?.classList.remove("is-open");
+          mobileNav?.setAttribute("aria-hidden", "true");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+        } else {
+          mobileNav?.classList.add("is-open");
+          mobileNav?.setAttribute("aria-hidden", "false");
+          mobileMenuButton.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      mobileNav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("is-open");
+          mobileNav.setAttribute("aria-hidden", "true");
+          mobileMenuButton?.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      loadMoreButton?.addEventListener("click", () => {
+        productGrid?.classList.add("is-expanded");
+        loadMoreButton.hidden = true;
+      });
+    </script>
+  </body>
+</html>
