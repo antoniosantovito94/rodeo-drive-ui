@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import CartIconLink from "./CartIconLink";
 import ProductCard from "./ProductCard";
 
 const markets = [
@@ -55,11 +56,7 @@ export default function HomePageClient({ products }) {
                 favorite
               </span>
             </a>
-            <a className="nav-icon-link" href="/carrello" aria-label="Carrello">
-              <span className="material-symbols-outlined" aria-hidden="true">
-                shopping_bag
-              </span>
-            </a>
+            <CartIconLink />
             <a className="desktop-only" href="#account" aria-label="Account">
               Me
             </a>

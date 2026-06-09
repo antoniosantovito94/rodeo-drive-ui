@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ProductPurchaseForm from "../../components/ProductPurchaseForm";
 import { getProductBySlug } from "../../../lib/catalog";
 
 export const metadata = {
@@ -59,9 +60,7 @@ export default async function ProductDetailPage({ params }) {
               </div>
             ) : null}
 
-            <button className="button button-dark" type="button" disabled>
-              Aggiungi al carrello
-            </button>
+            <ProductPurchaseForm product={product} />
           </div>
         </div>
       </section>
