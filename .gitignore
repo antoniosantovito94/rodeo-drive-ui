@@ -3,6 +3,13 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env.*.local
 desktop-check.png
 mobile-check.png
 mobile-full-check.png
+ROADMAP.md
