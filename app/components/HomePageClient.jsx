@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CartIconLink from "./CartIconLink";
 import ProductCard from "./ProductCard";
+import SiteFooter from "./SiteFooter";
+import SiteHeader from "./SiteHeader";
 
 const markets = [
   ["Luned&igrave;", "Andria"],
@@ -15,79 +16,11 @@ const markets = [
 ];
 
 export default function HomePageClient({ products }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductGridExpanded, setIsProductGridExpanded] = useState(false);
-
-  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
-      <header className="site-header">
-        <nav className="nav-shell" aria-label="Navigazione principale">
-          <button
-            className="mobile-menu"
-            type="button"
-            aria-label="Apri menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav"
-            onClick={() => setIsMenuOpen((value) => !value)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <div className="nav-links nav-left">
-            <a href="#donna">Donna</a>
-            <a href="#uomo">Uomo</a>
-            <a href="#nuovi-arrivi" aria-current="page">
-              Nuovi arrivi
-            </a>
-            <a href="#sale">Sale</a>
-          </div>
-
-          <Link className="brand-mark nav-brand" href="/" aria-label="Rodeo Drive home">
-            <img src="/assets/rodeo-drive-logo.svg" alt="Rodeo Drive" />
-          </Link>
-
-          <div className="nav-actions" aria-label="Azioni">
-            <a className="nav-icon-link" href="#wishlist" aria-label="Wishlist">
-              <span className="material-symbols-outlined" aria-hidden="true">
-                favorite
-              </span>
-            </a>
-            <CartIconLink />
-            <a className="desktop-only" href="#account" aria-label="Account">
-              Me
-            </a>
-          </div>
-        </nav>
-
-        <div
-          className={`mobile-nav${isMenuOpen ? " is-open" : ""}`}
-          id="mobile-nav"
-          aria-hidden={!isMenuOpen}
-        >
-          <a href="#donna" onClick={closeMenu}>
-            Donna
-          </a>
-          <a href="#uomo" onClick={closeMenu}>
-            Uomo
-          </a>
-          <a href="#nuovi-arrivi" onClick={closeMenu}>
-            Nuovi arrivi
-          </a>
-          <a href="#sale" onClick={closeMenu}>
-            Sale
-          </a>
-          <a href="#mercati" onClick={closeMenu}>
-            Dove siamo
-          </a>
-          <a href="#contatti" onClick={closeMenu}>
-            Contatti
-          </a>
-        </div>
-      </header>
+      <SiteHeader current="products" />
 
       <main>
         <section className="hero">
@@ -164,21 +97,7 @@ export default function HomePageClient({ products }) {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-shell">
-          <Link className="brand-mark footer-brand" href="/" aria-label="Rodeo Drive home">
-            <span>Rodeo Drive</span>
-          </Link>
-          <p>&copy; 2026 Rodeo Drive. Tutti i diritti riservati.</p>
-          <nav aria-label="Link footer">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#termini">Termini e Condizioni</a>
-            <a href="#spedizioni">Spedizioni</a>
-            <a href="#resi">Resi</a>
-            <a href="#contatti">Contatti</a>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

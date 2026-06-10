@@ -1,4 +1,6 @@
 import CartPageClient from "../components/CartPageClient";
+import SiteFooter from "../components/SiteFooter";
+import SiteHeader from "../components/SiteHeader";
 
 export const metadata = {
   title: "Carrello | Rodeo Drive",
@@ -6,5 +8,11 @@ export const metadata = {
 };
 
 export default function CartPage() {
-  return <CartPageClient />;
+  return (
+    <>
+      <SiteHeader />
+      <CartPageClient />
+      <SiteFooter />
+    </>
+  );
 }
