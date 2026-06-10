@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import CartIconLink from "./CartIconLink";
+import WishlistIconLink from "./WishlistIconLink";
 
 export default function SiteHeader({ current = "" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,11 +39,7 @@ export default function SiteHeader({ current = "" }) {
         </Link>
 
         <div className="nav-actions" aria-label="Azioni">
-          <Link className="nav-icon-link" href="/#wishlist" aria-label="Wishlist">
-            <span className="material-symbols-outlined" aria-hidden="true">
-              favorite
-            </span>
-          </Link>
+          <WishlistIconLink />
           <CartIconLink />
           <Link className="desktop-only" href="/#account" aria-label="Account">
             Me
@@ -78,6 +75,9 @@ export default function SiteHeader({ current = "" }) {
         </Link>
         <Link href="/carrello" onClick={closeMenu}>
           Carrello
+        </Link>
+        <Link href="/wishlist" onClick={closeMenu}>
+          Wishlist
         </Link>
       </div>
     </header>

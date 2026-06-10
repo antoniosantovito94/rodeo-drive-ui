@@ -113,7 +113,8 @@ img {
   transform: translate(2px, 2px);
 }
 
-.cart-icon-link strong {
+.cart-icon-link strong,
+.wishlist-icon-link strong {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -501,6 +502,12 @@ h1 {
   box-shadow: var(--offset);
 }
 
+.product-media a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .product-media img {
   width: 100%;
   height: 100%;
@@ -531,6 +538,37 @@ h1 {
 
 .badge-red {
   background: var(--red);
+}
+
+.wishlist-button {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: var(--paper-bright);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.wishlist-button .material-symbols-outlined {
+  font-size: 24px;
+  font-variation-settings: "FILL" 0, "wght" 800;
+}
+
+.wishlist-button.is-selected {
+  background: var(--red);
+  color: #ffffff;
+}
+
+.wishlist-button.is-selected .material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 800;
 }
 
 .product-info {
@@ -915,6 +953,28 @@ h1 {
   background: var(--paper);
 }
 
+.wishlist-page {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.wishlist-card-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.wishlist-card-shell > button {
+  min-height: 42px;
+  border: 2px solid var(--ink);
+  background: var(--paper-bright);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .cart-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 330px;
@@ -1171,7 +1231,8 @@ h1 {
     font-size: 18px;
   }
 
-  .cart-icon-link strong {
+  .cart-icon-link strong,
+  .wishlist-icon-link strong {
     top: -3px;
     right: -5px;
     min-width: 16px;
@@ -1441,6 +1502,13 @@ h1 {
 
   .product-media {
     box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .wishlist-button {
+    width: 42px;
+    height: 42px;
+    left: 12px;
+    bottom: 12px;
   }
 
   .product-info {
