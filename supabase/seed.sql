@@ -20,6 +20,7 @@ insert into products (
   compare_at_price_cents,
   status,
   featured,
+  is_new_arrival,
   badge_label,
   badge_tone,
   sort_order
@@ -35,6 +36,7 @@ select
   product.compare_at_price_cents,
   product.status,
   product.featured,
+  product.is_new_arrival,
   product.badge_label,
   product.badge_tone,
   product.sort_order
@@ -51,6 +53,7 @@ cross join (
       null::integer,
       'published',
       true,
+      true,
       'Nuovo',
       'blue',
       10
@@ -64,6 +67,7 @@ cross join (
       2990,
       3990,
       'published',
+      true,
       true,
       null,
       null,
@@ -79,6 +83,7 @@ cross join (
       990,
       'published',
       true,
+      true,
       'Sale',
       'red',
       30
@@ -93,6 +98,7 @@ cross join (
   compare_at_price_cents,
   status,
   featured,
+  is_new_arrival,
   badge_label,
   badge_tone,
   sort_order
@@ -107,6 +113,7 @@ set category_id = excluded.category_id,
     compare_at_price_cents = excluded.compare_at_price_cents,
     status = excluded.status,
     featured = excluded.featured,
+    is_new_arrival = excluded.is_new_arrival,
     badge_label = excluded.badge_label,
     badge_tone = excluded.badge_tone,
     sort_order = excluded.sort_order,

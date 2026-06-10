@@ -76,7 +76,7 @@ export default function HomePageClient({ products }) {
         <section className="products section-shell" id="nuovi-arrivi">
           <div className="section-heading heading-row">
             <h2>Nuovi arrivi</h2>
-            <Link href="/prodotti">Vedi tutti &rarr;</Link>
+            <Link href="/prodotti?selezione=nuovi-arrivi">Vedi tutti &rarr;</Link>
           </div>
 
           <div className={`product-grid${isProductGridExpanded ? " is-expanded" : ""}`}>

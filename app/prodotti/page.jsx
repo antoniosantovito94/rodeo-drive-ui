@@ -2,7 +2,7 @@ import Link from "next/link";
 import ProductCard from "../components/ProductCard";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
-import { getAllProducts, getProductsByCategory } from "../../lib/catalog";
+import { getAllProducts, getNewArrivalProducts, getProductsByCategory } from "../../lib/catalog";
 
 export const metadata = {
   title: "Prodotti | Rodeo Drive",
@@ -38,12 +38,11 @@ const typeFiltersByCategory = {
 export default async function ProductsPage({ searchParams }) {
   const params = await searchParams;
   const categorySlug = normalizeCategory(params?.categoria);
+  const selection = normalizeSelection(params?.selezione);
   const typeFilters = typeFiltersByCategory[categorySlug] ?? [];
   const productType = normalizeProductType(params?.tipo, typeFilters);
-  const products = categorySlug
-    ? await getProductsByCategory(categorySlug, productType)
-    : await getAllProducts();
-  const title = categorySlug ? categoryLabels[categorySlug] : "Prodotti";
+  const products = await getProducts({ categorySlug, productType, selection });
+  const title = getPageTitle({ categorySlug, selection });
 
   return (
     <>
@@ -52,8 +51,8 @@ export default async function ProductsPage({ searchParams }) {
         <section className="products section-shell">
           <div className="section-heading heading-row">
             <h1>{title}</h1>
-            <Link href={categorySlug ? "/prodotti" : "/"}>
-              {categorySlug ? "Tutti i prodotti" : "Torna alla home"} &rarr;
+            <Link href={categorySlug || selection ? "/prodotti" : "/"}>
+              {categorySlug || selection ? "Tutti i prodotti" : "Torna alla home"} &rarr;
             </Link>
           </div>
 
@@ -115,4 +114,29 @@ function normalizeProductType(type, typeFilters) {
   const validTypes = typeFilters.map((filter) => filter.value).filter(Boolean);
 
   return validTypes.includes(value) ? value : "";
+}
+
+function normalizeSelection(selection) {
+  const value = Array.isArray(selection) ? selection[0] : selection;
+  return value === "nuovi-arrivi" ? value : "";
+}
+
+function getPageTitle({ categorySlug, selection }) {
+  if (selection === "nuovi-arrivi") {
+    return "Nuovi arrivi";
+  }
+
+  return categorySlug ? categoryLabels[categorySlug] : "Prodotti";
+}
+
+async function getProducts({ categorySlug, productType, selection }) {
+  if (selection === "nuovi-arrivi") {
+    return getNewArrivalProducts();
+  }
+
+  if (categorySlug) {
+    return getProductsByCategory(categorySlug, productType);
+  }
+
+  return getAllProducts();
 }

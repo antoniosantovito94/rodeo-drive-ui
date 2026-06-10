@@ -21,6 +21,7 @@ create table if not exists products (
   currency text not null default 'EUR',
   status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
   featured boolean not null default false,
+  is_new_arrival boolean not null default false,
   badge_label text,
   badge_tone text check (badge_tone in ('blue', 'red')),
   sort_order integer not null default 0,
@@ -30,6 +31,9 @@ create table if not exists products (
 
 alter table products
   add column if not exists product_type text;
+
+alter table products
+  add column if not exists is_new_arrival boolean not null default false;
 
 create table if not exists product_images (
   id uuid primary key default gen_random_uuid(),
@@ -63,6 +67,7 @@ create table if not exists inventory (
 );
 
 create index if not exists products_status_featured_idx on products(status, featured);
+create index if not exists products_status_new_arrival_idx on products(status, is_new_arrival);
 create index if not exists products_category_type_idx on products(category_id, product_type);
 create index if not exists products_sort_order_idx on products(sort_order);
 create index if not exists product_images_product_id_idx on product_images(product_id);
