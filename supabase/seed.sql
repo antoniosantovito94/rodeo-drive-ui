@@ -1,5 +1,7 @@
 insert into categories (name, slug, sort_order)
-values ('Donna', 'donna', 10)
+values
+  ('Donna', 'donna', 10),
+  ('Uomo', 'uomo', 20)
 on conflict (slug) do update
 set name = excluded.name,
     sort_order = excluded.sort_order;

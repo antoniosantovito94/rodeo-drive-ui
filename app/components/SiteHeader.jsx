@@ -25,8 +25,8 @@ export default function SiteHeader({ current = "" }) {
         </button>
 
         <div className="nav-links nav-left">
-          <Link href="/#donna">Donna</Link>
-          <Link href="/#uomo">Uomo</Link>
+          <Link href="/prodotti?categoria=donna">Donna</Link>
+          <Link href="/prodotti?categoria=uomo">Uomo</Link>
           <Link href="/#nuovi-arrivi" aria-current={current === "products" ? "page" : undefined}>
             Nuovi arrivi
           </Link>
@@ -55,10 +55,10 @@ export default function SiteHeader({ current = "" }) {
         id="mobile-nav"
         aria-hidden={!isMenuOpen}
       >
-        <Link href="/#donna" onClick={closeMenu}>
+        <Link href="/prodotti?categoria=donna" onClick={closeMenu}>
           Donna
         </Link>
-        <Link href="/#uomo" onClick={closeMenu}>
+        <Link href="/prodotti?categoria=uomo" onClick={closeMenu}>
           Uomo
         </Link>
         <Link href="/#nuovi-arrivi" onClick={closeMenu}>

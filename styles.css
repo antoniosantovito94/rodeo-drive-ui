@@ -430,6 +430,28 @@ h1 {
   background: var(--paper);
 }
 
+.catalog-empty {
+  max-width: 620px;
+  padding: 42px;
+  border: var(--line);
+  background: var(--paper-bright);
+  box-shadow: var(--offset);
+}
+
+.catalog-empty h2 {
+  margin: 0 0 16px;
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.catalog-empty p {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1343,6 +1365,19 @@ h1 {
 
   .catalog-page .product-grid {
     gap: 36px;
+  }
+
+  .catalog-empty {
+    padding: 28px 18px;
+    border-width: 3px;
+  }
+
+  .catalog-empty h2 {
+    font-size: 24px;
+  }
+
+  .catalog-empty .button {
+    width: 100%;
   }
 
   .product-grid {

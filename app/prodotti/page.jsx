@@ -2,15 +2,23 @@ import Link from "next/link";
 import ProductCard from "../components/ProductCard";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
-import { getAllProducts } from "../../lib/catalog";
+import { getAllProducts, getProductsByCategory } from "../../lib/catalog";
 
 export const metadata = {
   title: "Prodotti | Rodeo Drive",
   description: "Catalogo prodotti Rodeo Drive.",
 };
 
-export default async function ProductsPage() {
-  const products = await getAllProducts();
+const categoryLabels = {
+  donna: "Donna",
+  uomo: "Uomo",
+};
+
+export default async function ProductsPage({ searchParams }) {
+  const params = await searchParams;
+  const categorySlug = normalizeCategory(params?.categoria);
+  const products = categorySlug ? await getProductsByCategory(categorySlug) : await getAllProducts();
+  const title = categorySlug ? categoryLabels[categorySlug] : "Prodotti";
 
   return (
     <>
@@ -18,18 +26,40 @@ export default async function ProductsPage() {
       <main className="catalog-page">
         <section className="products section-shell">
           <div className="section-heading heading-row">
-            <h1>Prodotti</h1>
-            <Link href="/">Torna alla home &rarr;</Link>
+            <h1>{title}</h1>
+            <Link href={categorySlug ? "/prodotti" : "/"}>
+              {categorySlug ? "Tutti i prodotti" : "Torna alla home"} &rarr;
+            </Link>
           </div>
 
-          <div className="product-grid">
-            {products.map((product) => (
-              <ProductCard product={product} key={product.id} />
-            ))}
-          </div>
+          {products.length > 0 ? (
+            <div className="product-grid">
+              {products.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+            </div>
+          ) : (
+            <div className="catalog-empty">
+              <h2>Nessun capo disponibile</h2>
+              <p>Questa selezione sara' aggiornata appena carichiamo nuovi prodotti.</p>
+              <Link className="button button-outline" href="/prodotti">
+                Vedi tutto
+              </Link>
+            </div>
+          )}
         </section>
       </main>
       <SiteFooter />
     </>
   );
+}
+
+function normalizeCategory(category) {
+  const value = Array.isArray(category) ? category[0] : category;
+
+  if (value === "donna" || value === "uomo") {
+    return value;
+  }
+
+  return "";
 }
