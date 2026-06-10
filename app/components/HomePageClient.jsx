@@ -15,7 +15,7 @@ const markets = [
   ["Sabato", "Corato"],
 ];
 
-export default function HomePageClient({ products }) {
+export default function HomePageClient({ products, saleProducts }) {
   const [isProductGridExpanded, setIsProductGridExpanded] = useState(false);
 
   return (
@@ -94,6 +94,29 @@ export default function HomePageClient({ products }) {
               Carica altri
             </button>
           ) : null}
+        </section>
+
+        <section className="products sale-section section-shell" id="sale">
+          <div className="section-heading heading-row">
+            <h2>Sale</h2>
+            <Link href="/prodotti?selezione=sale">Vedi tutti &rarr;</Link>
+          </div>
+
+          {saleProducts.length > 0 ? (
+            <div className="product-grid">
+              {saleProducts.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+            </div>
+          ) : (
+            <div className="catalog-empty">
+              <h2>Nessun capo in saldo</h2>
+              <p>Questa selezione sara' aggiornata appena carichiamo nuovi prodotti.</p>
+              <Link className="button button-outline" href="/prodotti">
+                Vedi tutto
+              </Link>
+            </div>
+          )}
         </section>
       </main>
 

@@ -2,10 +2,15 @@ import Link from "next/link";
 import ProductCard from "../components/ProductCard";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
-import { getAllProducts, getNewArrivalProducts, getProductsByCategory } from "../../lib/catalog";
+import {
+  getAllProducts,
+  getNewArrivalProducts,
+  getProductsByCategory,
+  getSaleProducts,
+} from "../../lib/catalog";
 
 export const metadata = {
-  title: "Prodotti | Rodeo Drive",
+  title: "Catalogo | Rodeo Drive",
   description: "Catalogo prodotti Rodeo Drive.",
 };
 
@@ -43,6 +48,7 @@ export default async function ProductsPage({ searchParams }) {
   const productType = normalizeProductType(params?.tipo, typeFilters);
   const products = await getProducts({ categorySlug, productType, selection });
   const title = getPageTitle({ categorySlug, selection });
+  const headingLink = getHeadingLink({ categorySlug, selection });
 
   return (
     <>
@@ -51,9 +57,11 @@ export default async function ProductsPage({ searchParams }) {
         <section className="products section-shell">
           <div className="section-heading heading-row">
             <h1>{title}</h1>
-            <Link href={categorySlug || selection ? "/prodotti" : "/"}>
-              {categorySlug || selection ? "Tutti i prodotti" : "Torna alla home"} &rarr;
-            </Link>
+            {headingLink ? (
+              <Link href={headingLink.href}>
+                {headingLink.label} &rarr;
+              </Link>
+            ) : null}
           </div>
 
           {categorySlug ? (
@@ -118,7 +126,7 @@ function normalizeProductType(type, typeFilters) {
 
 function normalizeSelection(selection) {
   const value = Array.isArray(selection) ? selection[0] : selection;
-  return value === "nuovi-arrivi" ? value : "";
+  return value === "nuovi-arrivi" || value === "sale" ? value : "";
 }
 
 function getPageTitle({ categorySlug, selection }) {
@@ -126,12 +134,38 @@ function getPageTitle({ categorySlug, selection }) {
     return "Nuovi arrivi";
   }
 
-  return categorySlug ? categoryLabels[categorySlug] : "Prodotti";
+  if (selection === "sale") {
+    return "Sale";
+  }
+
+  return categorySlug ? categoryLabels[categorySlug] : "Catalogo";
+}
+
+function getHeadingLink({ categorySlug, selection }) {
+  if (categorySlug) {
+    return null;
+  }
+
+  if (selection) {
+    return {
+      href: "/prodotti",
+      label: "Tutto il catalogo",
+    };
+  }
+
+  return {
+    href: "/",
+    label: "Torna alla home",
+  };
 }
 
 async function getProducts({ categorySlug, productType, selection }) {
   if (selection === "nuovi-arrivi") {
     return getNewArrivalProducts();
+  }
+
+  if (selection === "sale") {
+    return getSaleProducts();
   }
 
   if (categorySlug) {

@@ -33,7 +33,7 @@ export default async function ProductDetailPage({ params }) {
 
             <div className="product-detail-info">
               <Link className="back-link" href="/prodotti">
-                &larr; Prodotti
+                &larr; Catalogo
               </Link>
               <h1>{product.name}</h1>
               <p className="product-detail-price">

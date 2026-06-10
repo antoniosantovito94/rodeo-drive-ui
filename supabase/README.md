@@ -49,6 +49,14 @@ Uomo:
 - `camicie`
 - `accessori`
 
+## Editorial flags
+
+Use these boolean fields to control homepage and editorial catalog sections:
+
+- `featured`: product can appear on the homepage
+- `is_new_arrival`: product appears in `/#nuovi-arrivi` and `/prodotti?selezione=nuovi-arrivi`
+- `is_on_sale`: product appears in `/#sale` and `/prodotti?selezione=sale`
+
 ## 3. Configure local env
 
 Create `.env.local` locally:
