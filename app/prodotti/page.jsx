@@ -14,18 +14,32 @@ const categoryLabels = {
   uomo: "Uomo",
 };
 
-const typeFilters = [
-  { label: "Tutto", value: "" },
-  { label: "Jeans", value: "jeans" },
-  { label: "Vestiti", value: "vestiti" },
-  { label: "Maglie", value: "maglie" },
-  { label: "Borse", value: "borse" },
-];
+const typeFiltersByCategory = {
+  donna: [
+    { label: "Tutto", value: "" },
+    { label: "Jeans", value: "jeans" },
+    { label: "Pantaloni", value: "pantaloni" },
+    { label: "Shorts", value: "shorts" },
+    { label: "Vestiti", value: "vestiti" },
+    { label: "Maglie", value: "maglie" },
+    { label: "Borse", value: "borse" },
+    { label: "Accessori", value: "accessori" },
+  ],
+  uomo: [
+    { label: "Tutto", value: "" },
+    { label: "Jeans", value: "jeans" },
+    { label: "Pantaloni", value: "pantaloni" },
+    { label: "Maglie", value: "maglie" },
+    { label: "Camicie", value: "camicie" },
+    { label: "Accessori", value: "accessori" },
+  ],
+};
 
 export default async function ProductsPage({ searchParams }) {
   const params = await searchParams;
   const categorySlug = normalizeCategory(params?.categoria);
-  const productType = normalizeProductType(params?.tipo);
+  const typeFilters = typeFiltersByCategory[categorySlug] ?? [];
+  const productType = normalizeProductType(params?.tipo, typeFilters);
   const products = categorySlug
     ? await getProductsByCategory(categorySlug, productType)
     : await getAllProducts();
@@ -96,7 +110,7 @@ function normalizeCategory(category) {
   return "";
 }
 
-function normalizeProductType(type) {
+function normalizeProductType(type, typeFilters) {
   const value = Array.isArray(type) ? type[0] : type;
   const validTypes = typeFilters.map((filter) => filter.value).filter(Boolean);
 

@@ -27,6 +27,28 @@ Current image status:
 - Before production, upload final product images to the `product-images` bucket.
 - Then update `product_images.url` with the public Supabase Storage URLs.
 
+## Product type values
+
+Use `products.product_type` for catalog filters.
+
+Donna:
+
+- `jeans`
+- `pantaloni`
+- `shorts`
+- `vestiti`
+- `maglie`
+- `borse`
+- `accessori`
+
+Uomo:
+
+- `jeans`
+- `pantaloni`
+- `maglie`
+- `camicie`
+- `accessori`
+
 ## 3. Configure local env
 
 Create `.env.local` locally:
