@@ -452,6 +452,35 @@ h1 {
   font-weight: 700;
 }
 
+.catalog-filter {
+  max-width: var(--max);
+  margin: -34px auto 46px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.catalog-filter a {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 2px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-bright);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.catalog-filter a.is-active,
+.catalog-filter a:hover {
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1370,6 +1399,19 @@ h1 {
   .catalog-empty {
     padding: 28px 18px;
     border-width: 3px;
+  }
+
+  .catalog-filter {
+    margin: -12px auto 34px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .catalog-filter a {
+    min-height: 40px;
+    padding: 0 10px;
+    font-size: 9px;
   }
 
   .catalog-empty h2 {

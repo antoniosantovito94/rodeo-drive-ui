@@ -15,6 +15,7 @@ create table if not exists products (
   name text not null,
   short_description text,
   description text,
+  product_type text,
   price_cents integer not null check (price_cents >= 0),
   compare_at_price_cents integer check (compare_at_price_cents >= 0),
   currency text not null default 'EUR',
@@ -26,6 +27,9 @@ create table if not exists products (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table products
+  add column if not exists product_type text;
 
 create table if not exists product_images (
   id uuid primary key default gen_random_uuid(),
@@ -59,6 +63,7 @@ create table if not exists inventory (
 );
 
 create index if not exists products_status_featured_idx on products(status, featured);
+create index if not exists products_category_type_idx on products(category_id, product_type);
 create index if not exists products_sort_order_idx on products(sort_order);
 create index if not exists product_images_product_id_idx on product_images(product_id);
 create index if not exists product_variants_product_id_idx on product_variants(product_id);
