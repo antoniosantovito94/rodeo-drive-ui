@@ -1427,11 +1427,11 @@ h1 {
     gap: 36px;
   }
 
-  .product-card:nth-child(n + 3) {
+  #nuovi-arrivi .product-card:nth-child(n + 3) {
     display: none;
   }
 
-  .product-grid.is-expanded .product-card:nth-child(n + 3) {
+  #nuovi-arrivi .product-grid.is-expanded .product-card:nth-child(n + 3) {
     display: block;
   }
 
