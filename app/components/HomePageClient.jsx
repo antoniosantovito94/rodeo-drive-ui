@@ -7,12 +7,12 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 
 const markets = [
-  ["Luned&igrave;", "Andria"],
-  ["Marted&igrave;", "Bitonto"],
-  ["Mercoled&igrave;", "Cerignola"],
-  ["Gioved&igrave;", "Canosa"],
-  ["Venerd&igrave;", "S. G. Rotondo"],
-  ["Sabato", "Corato"],
+  ["Luned&igrave;", "Minervino Murge"],
+  ["Marted&igrave;", "Trani"],
+  ["Mercoled&igrave;", "Palo del Colle"],
+  ["Gioved&igrave;", "Santeramo in Colle"],
+  ["Venerd&igrave;", "Modugno"],
+  ["Sabato", "Mola di Bari"],
 ];
 
 export default function HomePageClient({ products, saleProducts }) {
@@ -55,7 +55,7 @@ export default function HomePageClient({ products, saleProducts }) {
           <div className="story-intro-card">
             <h2 id="story-intro-title">6 mercati, una passione, ora anche online.</h2>
             <p>
-              Da Andria a San Giovanni Rotondo, ogni settimana portiamo moda e
+              Da Minervino a Mola di Bari, ogni settimana portiamo moda e
               qualit&agrave; in tutta la provincia. Ora puoi avere i nostri capi
               direttamente a casa tua, ovunque tu sia.
             </p>
