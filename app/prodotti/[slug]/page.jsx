@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductPurchaseForm from "../../components/ProductPurchaseForm";
+import RelatedProductsCarousel from "../../components/RelatedProductsCarousel";
 import SiteFooter from "../../components/SiteFooter";
 import SiteHeader from "../../components/SiteHeader";
-import { getProductBySlug } from "../../../lib/catalog";
+import { getProductBySlug, getRelatedProducts } from "../../../lib/catalog";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Dettaglio prodotto | Rodeo Drive",
@@ -17,6 +20,8 @@ export default async function ProductDetailPage({ params }) {
   if (!product) {
     notFound();
   }
+
+  const relatedProducts = await getRelatedProducts(product);
 
   return (
     <>
@@ -68,6 +73,7 @@ export default async function ProductDetailPage({ params }) {
             </div>
           </div>
         </section>
+        <RelatedProductsCarousel products={relatedProducts} />
       </main>
       <SiteFooter />
     </>
