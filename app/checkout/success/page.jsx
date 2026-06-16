@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Ordine confermato | Rodeo Drive",
+  title: "Ordine confermato | Michele Evangelista",
   description: "Pagamento completato.",
 };
 

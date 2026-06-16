@@ -9,8 +9,8 @@ import { getProductBySlug, getRelatedProducts } from "../../../lib/catalog";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Dettaglio prodotto | Rodeo Drive",
-  description: "Scheda prodotto Rodeo Drive.",
+  title: "Dettaglio prodotto | Michele Evangelista",
+  description: "Scheda prodotto Michele Evangelista.",
 };
 
 export default async function ProductDetailPage({ params }) {

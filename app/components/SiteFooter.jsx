@@ -4,10 +4,10 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-shell">
-        <Link className="brand-mark footer-brand" href="/" aria-label="Rodeo Drive home">
-          <span>Rodeo Drive</span>
+        <Link className="brand-mark footer-brand" href="/" aria-label="Michele Evangelista home">
+          <img src="/assets/michele-evangelista-logo-light.svg" alt="Michele Evangelista" />
         </Link>
-        <p>&copy; 2026 Rodeo Drive. Tutti i diritti riservati.</p>
+        <p>&copy; 2026 Michele Evangelista. Tutti i diritti riservati.</p>
         <nav aria-label="Link footer">
           <Link href="/#privacy">Privacy Policy</Link>
           <Link href="/#termini">Termini e Condizioni</Link>

@@ -34,8 +34,8 @@ export default function SiteHeader({ current = "" }) {
           <Link href="/#sale">Sale</Link>
         </div>
 
-        <Link className="brand-mark nav-brand" href="/" aria-label="Rodeo Drive home">
-          <img src="/assets/rodeo-drive-logo.svg" alt="Rodeo Drive" />
+        <Link className="brand-mark nav-brand" href="/" aria-label="Michele Evangelista home">
+          <img src="/assets/michele-evangelista-logo-light.svg" alt="Michele Evangelista" />
         </Link>
 
         <div className="nav-actions" aria-label="Azioni">

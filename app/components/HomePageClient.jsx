@@ -29,7 +29,10 @@ export default function HomePageClient({ products, saleProducts }) {
 
           <div className="hero-card">
             <div className="hero-logo">
-              <img src="/assets/rodeo-drive-official.jpg" alt="Rodeo Drive di Vito Attimonelli" />
+              <img
+                src="/assets/michele-evangelista-logo-light.svg"
+                alt="Michele Evangelista"
+              />
             </div>
             <p className="eyebrow">Nuova collezione - Estate 2026</p>
             <h1>

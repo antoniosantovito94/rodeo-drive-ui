@@ -10,8 +10,8 @@ import {
 } from "../../lib/catalog";
 
 export const metadata = {
-  title: "Catalogo | Rodeo Drive",
-  description: "Catalogo prodotti Rodeo Drive.",
+  title: "Catalogo | Michele Evangelista",
+  description: "Catalogo prodotti Michele Evangelista.",
 };
 
 const categoryLabels = {

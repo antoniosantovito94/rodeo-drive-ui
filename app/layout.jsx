@@ -1,9 +1,9 @@
 import "../styles.css";
 
 export const metadata = {
-  title: "Rodeo Drive di Vito Attimonelli",
+  title: "Michele Evangelista",
   description:
-    "Rodeo Drive di Vito Attimonelli: abbigliamento donna e uomo nei mercati in Puglia, ora anche online.",
+    "Michele Evangelista: abbigliamento donna e uomo nei mercati in Puglia, ora anche online.",
 };
 
 export default function RootLayout({ children }) {

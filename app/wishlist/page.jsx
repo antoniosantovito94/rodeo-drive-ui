@@ -3,8 +3,8 @@ import SiteHeader from "../components/SiteHeader";
 import WishlistPageClient from "../components/WishlistPageClient";
 
 export const metadata = {
-  title: "Wishlist | Rodeo Drive",
-  description: "Capi salvati nella wishlist Rodeo Drive.",
+  title: "Wishlist | Michele Evangelista",
+  description: "Capi salvati nella wishlist Michele Evangelista.",
 };
 
 export default function WishlistPage() {
